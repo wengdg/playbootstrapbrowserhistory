@@ -17,7 +17,7 @@ import static play.test.Helpers.testServer;
 public class IntegrationTest {
 
   /**
-   * Check to see that both the index and page1 pages can be retrieved.
+   * Check to see that the index and browser pages can be retrieved.
    */
   @Test
   public void test() {
@@ -26,6 +26,14 @@ public class IntegrationTest {
         browser.goTo("http://localhost:3333");
         assertThat(browser.pageSource()).contains("history");
 
+        browser.goTo("http://localhost:3333/ie");
+        assertThat(browser.pageSource()).contains("NCSA");
+
+        browser.goTo("http://localhost:3333/firefox");
+        assertThat(browser.pageSource()).contains("Mozilla");
+
+        browser.goTo("http://localhost:3333/chrome");
+        assertThat(browser.pageSource()).contains("Google");
       }
     });
   }

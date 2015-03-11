@@ -33,5 +33,4 @@ public class ApplicationTest {
     assertThat(contentAsString(html)).contains("history");
   }
 
-
 }
